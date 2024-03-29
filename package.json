@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
-    "test": "bun test"
+    "test": "bun test",
+    "lint": "bunx @biomejs/biome check --apply src tests"
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.3",
