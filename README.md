@@ -82,3 +82,5 @@ sequenceDiagram
 - [ドメイン駆動設計入門 ボトムアップでわかる! ドメイン駆動設計の基本](https://amzn.to/4a9YMKo)
 - [現場で役立つシステム設計の原則 〜変更を楽で安全にするオブジェクト指向の実践技法](https://amzn.to/4aeUWj5)
 - [Code Complete 第 2 版 上　完全なプログラミングを目指して](https://amzn.to/3PG0pay)
+  - 5 章 コンストラクションにおける設計
+  - 6 章 クラスの作成
