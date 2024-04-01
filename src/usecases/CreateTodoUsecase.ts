@@ -2,7 +2,7 @@ import TodoEntity from '@src/entities/TodoEntity';
 import type IUsecase from './IUsecase';
 import type IRepository from '@src/datasources/IRepository';
 
-type CreateTodoInputType = {
+export type CreateTodoInputType = {
   title: string;
   body: string;
 };
