@@ -7,7 +7,7 @@ export type CreateTodoInputType = {
   body: string;
 };
 
-export default class CreateTodoUseCase
+export default class CreateTodoUsease
   implements IUsecase<CreateTodoInputType, TodoEntity>
 {
   private readonly repository: IRepository<TodoEntity>;
@@ -16,9 +16,9 @@ export default class CreateTodoUseCase
     this.repository = repository;
   }
 
-  execute(input: CreateTodoInputType): TodoEntity {
+  async execute(input: CreateTodoInputType): Promise<TodoEntity> {
     const entity = new TodoEntity({ title: input.title, body: input.body });
-    const savedEntity = this.repository.save(entity);
+    const savedEntity = await this.repository.save(entity);
 
     return savedEntity;
   }
