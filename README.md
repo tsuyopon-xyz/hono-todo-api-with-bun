@@ -79,9 +79,11 @@ sequenceDiagram
 
 - Todo 作成 API の実装 : https://github.com/tsuyopon-xyz/hono-todo-api-with-bun/pull/1
 - Todo 一覧 API の実装 : https://github.com/tsuyopon-xyz/hono-todo-api-with-bun/pull/2
-- Todo1 件取得 API の実装 : 用意できたらリンク貼る
-- Todo 更新 API の実装 : 用意できたらリンク貼る
-- Todo 削除 API の実装 : 用意できたらリンク貼る
+- Todo 1 件取得 API の実装 : https://github.com/tsuyopon-xyz/hono-todo-api-with-bun/pull/3
+- Todo 更新 API の実装 : 上記 3 つのプルリクの内容を参考に実装してみてください
+- Todo 削除 API の実装 : 上記 3 つのプルリクの内容を参考に実装してみてください
+
+実装のヒントやサポートが欲しい方は 「[こちらの記事](https://tsuyopon.xyz/lp/mail-magazine/)」の LINE 公式アカウントからご連絡いただけたらと思います。
 
 ## 参考資料
 
