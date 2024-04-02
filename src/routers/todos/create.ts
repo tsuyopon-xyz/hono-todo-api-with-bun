@@ -17,14 +17,14 @@ export const addRouteForCreateTodo = ({
     validator('json', (value, c) => {
       const parsed = createTodoSchema.safeParse(value);
       if (!parsed.success) {
-        return c.json({ message: parsed.error.message }, 401);
+        return c.json({ error: parsed.error }, 400);
       }
 
       return parsed.data;
     }),
-    (c) => {
+    async (c) => {
       const { title, body } = c.req.valid('json');
-      const result = createTodoController.handle({ title, body });
+      const result = await createTodoController.handle({ title, body });
 
       return c.json(result, 201);
     },
