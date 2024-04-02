@@ -48,4 +48,13 @@ export default class TodoRepository implements IRepository<TodoEntity> {
 
     return this.db.slice(offset, offset + limit);
   }
+
+  async find(id: number): Promise<TodoEntity | null> {
+    const entity = this.db.find((e) => e.id === id);
+    if (!entity) {
+      return null;
+    }
+
+    return entity;
+  }
 }

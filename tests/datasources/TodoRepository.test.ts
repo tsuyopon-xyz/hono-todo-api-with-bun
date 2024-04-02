@@ -4,7 +4,7 @@ import TodoRepository from '@src/datasources/TodoRepository';
 
 describe('src/datasources/TodoRepository.ts', () => {
   describe('成功パターン', () => {
-    describe('save', async () => {
+    describe('save', () => {
       it('idが無いTodoEntityの場合、新規作成できる', async () => {
         const repository = new TodoRepository();
         const entity = new TodoEntity({ title: 'hello', body: 'world' });
@@ -16,7 +16,7 @@ describe('src/datasources/TodoRepository.ts', () => {
       });
     });
 
-    describe('list', async () => {
+    describe('list', () => {
       const todoEntities: TodoEntity[] = [];
       for (let i = 1; i <= 11; i++) {
         const entity = new TodoEntity({ title: `title${i}`, body: `body${i}` });
@@ -63,6 +63,28 @@ describe('src/datasources/TodoRepository.ts', () => {
         const entities = await repository.list({ page: 2, limit: 11 });
 
         expect(entities).toEqual([]);
+      });
+    });
+
+    describe('find', () => {
+      const todoEntities: TodoEntity[] = [
+        new TodoEntity({ title: 'title', body: 'body' }),
+      ];
+
+      it('idに対応するデータがあれば、Entityを返す', async () => {
+        const repository = new TodoRepository(todoEntities);
+        const entity = await repository.find(1);
+
+        expect(entity).toEqual(
+          new TodoEntity({ id: 1, title: 'title', body: 'body' }),
+        );
+      });
+
+      it('idに対応するデータがない場合は、nullを返す', async () => {
+        const repository = new TodoRepository(todoEntities);
+        const entity = await repository.find(2);
+
+        expect(entity).toBeNull();
       });
     });
   });
