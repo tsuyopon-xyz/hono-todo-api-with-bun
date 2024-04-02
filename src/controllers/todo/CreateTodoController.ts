@@ -9,7 +9,7 @@ export default class CreateTodoController {
     this.usecase = usecase;
   }
 
-  handle(input: CreateTodoInputType) {
-    return this.usecase.execute(input);
+  async handle(input: CreateTodoInputType) {
+    return await this.usecase.execute(input);
   }
 }

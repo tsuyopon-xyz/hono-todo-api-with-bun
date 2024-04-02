@@ -19,7 +19,7 @@ class MockRepository implements IRepository<TodoEntity> {
     return [new TodoEntity({ id: 1, title: 'mock_title', body: 'mock_body' })];
   }
 
-  async save(entity: TodoEntity): Promise<TodoEntity> {
+  async save(_: TodoEntity): Promise<TodoEntity> {
     // saveメソッドだけモックできれば良いため、listのモック実装は不要
     throw new Error('Method not implemented.');
   }

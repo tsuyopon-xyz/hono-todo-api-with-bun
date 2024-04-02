@@ -1,12 +1,13 @@
 import { describe, expect, it, spyOn } from 'bun:test';
 import TodoEntity from '@src/entities/TodoEntity';
-import type { CreateTodoInputType } from '@src/usecases/CreateTodoUsecase';
 import type IUsecase from '@src/usecases/IUsecase';
 import CreateTodoController from '@src/controllers/todo/CreateTodoController';
+import type { GetTodosInputType } from '@src/usecases/GetTodosUsecase';
+import GetTodosController from '@src/controllers/todo/GetTodosController';
 
-class MockUsecase implements IUsecase<CreateTodoInputType, TodoEntity> {
-  async execute(input: CreateTodoInputType) {
-    return await new TodoEntity(input);
+class MockUsecase implements IUsecase<GetTodosInputType, TodoEntity[]> {
+  async execute(_: GetTodosInputType): Promise<TodoEntity[]> {
+    return [new TodoEntity({ id: 1, title: 'foo', body: 'bar' })];
   }
 }
 
@@ -16,15 +17,17 @@ describe('src/controllers/todo/CreateTodoController.ts', () => {
       it('id付きのTodoEntityを返す', async () => {
         const usecase = new MockUsecase();
         const spy = spyOn(usecase, 'execute');
-        const controller = new CreateTodoController(usecase);
+        const controller = new GetTodosController(usecase);
 
         const result = await controller.handle({
-          title: 'hello',
-          body: 'world',
+          page: 1,
+          limit: 2,
         });
         expect(spy).toHaveBeenCalledTimes(1);
-        expect(spy.mock.calls[0]).toEqual([{ title: 'hello', body: 'world' }]);
-        expect(result).toBeInstanceOf(TodoEntity);
+        expect(spy.mock.calls[0]).toEqual([{ page: 1, limit: 2 }]);
+        expect(result).toEqual([
+          new TodoEntity({ id: 1, title: 'foo', body: 'bar' }),
+        ]);
       });
     });
   });
