@@ -1,5 +1,3 @@
-[WIP]
-
 # 学習用レポジトリ
 
 ## 開発のコツ
@@ -72,6 +70,18 @@ sequenceDiagram
     Usecase-->>-Controller: 処理結果
     Controller-->>-Client: クライアントへのレスポンス
 ```
+
+## サンプルコード
+
+実装が反映されているものを見たい場合は、「[develop ブランチ](https://github.com/tsuyopon-xyz/hono-todo-api-with-bun/tree/develop)」をご確認ください。
+
+機能ごとに実装を進めている様子はプルリクをご確認ください。以下は各 CRUD 操作ごとに開発を進めた際のプルリクエストのリンクとなります。
+
+- Todo 作成 API の実装 : https://github.com/tsuyopon-xyz/hono-todo-api-with-bun/pull/1
+- Todo 一覧 API の実装 : https://github.com/tsuyopon-xyz/hono-todo-api-with-bun/pull/2
+- Todo1 件取得 API の実装 : 用意できたらリンク貼る
+- Todo 更新 API の実装 : 用意できたらリンク貼る
+- Todo 削除 API の実装 : 用意できたらリンク貼る
 
 ## 参考資料
 
