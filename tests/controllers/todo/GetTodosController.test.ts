@@ -1,7 +1,6 @@
 import { describe, expect, it, spyOn } from 'bun:test';
 import TodoEntity from '@src/entities/TodoEntity';
 import type IUsecase from '@src/usecases/IUsecase';
-import CreateTodoController from '@src/controllers/todo/CreateTodoController';
 import type { GetTodosInputType } from '@src/usecases/GetTodosUsecase';
 import GetTodosController from '@src/controllers/todo/GetTodosController';
 
