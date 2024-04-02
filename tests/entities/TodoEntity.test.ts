@@ -25,7 +25,7 @@ describe('src/entities/TodoEntity.ts', () => {
           expect(entity.body).toEqual('world');
         });
 
-        it('[少数だけど実質整数]正しい引数を与えると例外は発生しないその2', async () => {
+        it('[小数だけど実質整数]正しい引数を与えると例外は発生しないその2', async () => {
           const entity = new TodoEntity({
             id: 1.0,
             title: 'hello',
@@ -62,7 +62,7 @@ describe('src/entities/TodoEntity.ts', () => {
           ).toThrow(new Error('`id`が不正です'));
         });
 
-        it('idが少数のときは例外が発生する', async () => {
+        it('idが小数のときは例外が発生する', async () => {
           expect(
             () => new TodoEntity({ id: 1.1, title: 'hello', body: 'world' }),
           ).toThrow(new Error('`id`が不正です'));
