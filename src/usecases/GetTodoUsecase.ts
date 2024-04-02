@@ -6,8 +6,10 @@ export type GetTodoInputType = {
   id: number;
 };
 
+export type GetTodoOutputType = TodoEntity | null;
+
 export default class GetTodoUsecase
-  implements IUsecase<GetTodoInputType, TodoEntity | null>
+  implements IUsecase<GetTodoInputType, GetTodoOutputType>
 {
   private readonly repository: IRepository<TodoEntity>;
 

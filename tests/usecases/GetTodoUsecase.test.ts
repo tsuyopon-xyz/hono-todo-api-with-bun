@@ -1,9 +1,9 @@
 import { describe, expect, it, spyOn } from 'bun:test';
 import TodoEntity from '@src/entities/TodoEntity';
-import CreateTodoUseCase from '@src/usecases/CreateTodoUsecase';
 import type IRepository from '@src/datasources/IRepository';
-import GetTodosUsecase from '@src/usecases/GetTodosUsecase';
-import GetTodoUsecase from '@src/usecases/GetTodoUsecase';
+import GetTodoUsecase, {
+  type GetTodoOutputType,
+} from '@src/usecases/GetTodoUsecase';
 
 class MockRepository implements IRepository<TodoEntity> {
   private nextId: number;
@@ -12,7 +12,7 @@ class MockRepository implements IRepository<TodoEntity> {
     this.nextId = 1;
   }
 
-  async find(id: number): Promise<TodoEntity | null> {
+  async find(id: number): Promise<GetTodoOutputType> {
     if (id === 1) {
       return new TodoEntity({ id: 1, title: 'foo', body: 'bar' });
     }
